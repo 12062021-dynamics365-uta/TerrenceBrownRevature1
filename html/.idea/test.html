@@ -1,0 +1,13 @@
+    stage('Create Email File') {
+        sh 'echo "<html>" >> email.html'
+        sh 'echo "<header><title>Email Title</title></header>" >> email.html'
+        sh 'echo "<body><table>" >> email.html'
+        for (n in statusList) {
+            sh 'echo "<tr>" >> email.html'
+            var = n.split(":")
+            sh 'echo "<th>${var[0]}</th>" >> email.html'
+            sh 'echo "<td>${var[1]}</td>" >> email.html'
+            sh 'echo "</tr>" >> email.html'
+        sh 'echo "</table>" >> email.html'
+        }
+    }
